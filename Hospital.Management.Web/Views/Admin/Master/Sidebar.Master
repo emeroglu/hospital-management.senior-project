@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/Masters/Header.Master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleCPH" runat="server">
+    <asp:ContentPlaceHolder ID="TitleCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="CssCPH" runat="server">
+    <asp:ContentPlaceHolder ID="CssCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="NgCPH" runat="server">
+    <asp:ContentPlaceHolder ID="NgCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="HeadCPH" runat="server">
+    <asp:ContentPlaceHolder ID="HeadCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="BodyTopCPH" runat="server">
+    <asp:ContentPlaceHolder ID="BodyTopCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="SidebarCPH" runat="server">
+
+    <div id="sidebar" class="sidebar-fixed">
+        <div id="sidebar-content">
+
+            <ul id="nav">
+                <li>
+                    <a href="/Admin/Doctors">
+                        <i class="icon-user"></i>
+                        Doctors
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/Patients">
+                        <i class="icon-user"></i>
+                        Patients
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/Rooms">
+                        <i class="fa fa-bed"></i>
+                        Rooms
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/Insurances">
+                        <i class="fa fa-line-chart"></i>
+                        Insurance Methods
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/Transactions">
+                        <i class="fa fa-usd"></i>
+                        Transactions
+                    </a>
+                </li>
+                <li>
+                    <a href="/Admin/Examinations">
+                        <i class="fa fa-search"></i>
+                        Examinations
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div id="divider" class="resizeable"></div>
+    </div>
+
+</asp:Content>
+
+<asp:Content ID="Content7" ContentPlaceHolderID="BreadcrumbCPH" runat="server">
+    <asp:ContentPlaceHolder ID="BreadcrumbCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content8" ContentPlaceHolderID="BodyCPH" runat="server">
+    <asp:ContentPlaceHolder ID="BodyCPH" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content9" ContentPlaceHolderID="BodyBottomCPH" runat="server">
+    <asp:ContentPlaceHolder ID="BodyBottomCPH" runat="server" />
+</asp:Content>

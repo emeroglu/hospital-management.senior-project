@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="hosBooking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" />
+    <Property Name="RoomID" Type="int" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="hosComplaint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="DoctorID" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="1000" />
+    <Property Name="Text" Type="varchar" MaxLength="2500" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="hosComplaintExamination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" />
+    <Property Name="ExaminationID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="hosDiagnosis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" />
+    <Property Name="DiseaseID" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="hosDisease">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="hosDoctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Surname" Type="varchar" MaxLength="100" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="250" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hosExamination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Fee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NeedsRoom" Type="int" />
+  </EntityType>
+  <EntityType Name="hosInsurance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="hosMedication">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="hosPatient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Surname" Type="varchar" MaxLength="100" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="250" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="InsuranceID" Type="int" />
+  </EntityType>
+  <EntityType Name="hosPrescription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" />
+    <Property Name="MedicationID" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="hosRoom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="int" />
+    <Property Name="Floor" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="hosTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ProvisionDate" Type="datetime" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="hosUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Online" Type="bit" />
+    <Property Name="LastSeen" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__hosBookin__Compl__5B2F4532">
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="0..1" />
+    <End Role="hosBooking" Type="Self.hosBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosBooking">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosBookin__RoomI__5C23696B">
+    <End Role="hosRoom" Type="Self.hosRoom" Multiplicity="0..1" />
+    <End Role="hosBooking" Type="Self.hosBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosRoom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosBooking">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Compl__3E930684">
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="0..1" />
+    <End Role="hosComplaintExamination" Type="Self.hosComplaintExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaintExamination">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Docto__35FDC083">
+    <End Role="hosDoctor" Type="Self.hosDoctor" Multiplicity="0..1" />
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosDoctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaint">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Exami__3F872ABD">
+    <End Role="hosExamination" Type="Self.hosExamination" Multiplicity="0..1" />
+    <End Role="hosComplaintExamination" Type="Self.hosComplaintExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosExamination">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaintExamination">
+        <PropertyRef Name="ExaminationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Patie__35099C4A">
+    <End Role="hosPatient" Type="Self.hosPatient" Multiplicity="0..1" />
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosPatient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaint">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDiagno__Compl__4BED01A2">
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="0..1" />
+    <End Role="hosDiagnosis" Type="Self.hosDiagnosis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDiagnosis">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDiagno__Disea__4CE125DB">
+    <End Role="hosDisease" Type="Self.hosDisease" Multiplicity="0..1" />
+    <End Role="hosDiagnosis" Type="Self.hosDiagnosis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosDisease">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDiagnosis">
+        <PropertyRef Name="DiseaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDoctor__UserI__26BB7CF3">
+    <End Role="hosUser" Type="Self.hosUser" Multiplicity="0..1" />
+    <End Role="hosDoctor" Type="Self.hosDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDoctor">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPatien__Insur__3044E72D">
+    <End Role="hosInsurance" Type="Self.hosInsurance" Multiplicity="0..1" />
+    <End Role="hosPatient" Type="Self.hosPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosInsurance">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPatient">
+        <PropertyRef Name="InsuranceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPatien__UserI__2F50C2F4">
+    <End Role="hosUser" Type="Self.hosUser" Multiplicity="0..1" />
+    <End Role="hosPatient" Type="Self.hosPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPatient">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPrescr__Compl__51A5DAF8">
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="0..1" />
+    <End Role="hosPrescription" Type="Self.hosPrescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPrescription">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPrescr__Medic__5299FF31">
+    <End Role="hosMedication" Type="Self.hosMedication" Multiplicity="0..1" />
+    <End Role="hosPrescription" Type="Self.hosPrescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosMedication">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPrescription">
+        <PropertyRef Name="MedicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosTransa__Compl__65ACD3A5">
+    <End Role="hosComplaint" Type="Self.hosComplaint" Multiplicity="0..1" />
+    <End Role="hosTransaction" Type="Self.hosTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosTransaction">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="hosBooking" EntityType="Self.hosBooking" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosComplaint" EntityType="Self.hosComplaint" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosComplaintExamination" EntityType="Self.hosComplaintExamination" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosDiagnosis" EntityType="Self.hosDiagnosis" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosDisease" EntityType="Self.hosDisease" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosDoctor" EntityType="Self.hosDoctor" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosExamination" EntityType="Self.hosExamination" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosInsurance" EntityType="Self.hosInsurance" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosMedication" EntityType="Self.hosMedication" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosPatient" EntityType="Self.hosPatient" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosPrescription" EntityType="Self.hosPrescription" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosRoom" EntityType="Self.hosRoom" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosTransaction" EntityType="Self.hosTransaction" Schema="emeroglu" store:Type="Tables" />
+    <EntitySet Name="hosUser" EntityType="Self.hosUser" Schema="emeroglu" store:Type="Tables" />
+    <AssociationSet Name="FK__hosBookin__Compl__5B2F4532" Association="Self.FK__hosBookin__Compl__5B2F4532">
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+      <End Role="hosBooking" EntitySet="hosBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosBookin__RoomI__5C23696B" Association="Self.FK__hosBookin__RoomI__5C23696B">
+      <End Role="hosRoom" EntitySet="hosRoom" />
+      <End Role="hosBooking" EntitySet="hosBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Compl__3E930684" Association="Self.FK__hosCompla__Compl__3E930684">
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+      <End Role="hosComplaintExamination" EntitySet="hosComplaintExamination" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Docto__35FDC083" Association="Self.FK__hosCompla__Docto__35FDC083">
+      <End Role="hosDoctor" EntitySet="hosDoctor" />
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Exami__3F872ABD" Association="Self.FK__hosCompla__Exami__3F872ABD">
+      <End Role="hosExamination" EntitySet="hosExamination" />
+      <End Role="hosComplaintExamination" EntitySet="hosComplaintExamination" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Patie__35099C4A" Association="Self.FK__hosCompla__Patie__35099C4A">
+      <End Role="hosPatient" EntitySet="hosPatient" />
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDiagno__Compl__4BED01A2" Association="Self.FK__hosDiagno__Compl__4BED01A2">
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+      <End Role="hosDiagnosis" EntitySet="hosDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDiagno__Disea__4CE125DB" Association="Self.FK__hosDiagno__Disea__4CE125DB">
+      <End Role="hosDisease" EntitySet="hosDisease" />
+      <End Role="hosDiagnosis" EntitySet="hosDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDoctor__UserI__26BB7CF3" Association="Self.FK__hosDoctor__UserI__26BB7CF3">
+      <End Role="hosUser" EntitySet="hosUser" />
+      <End Role="hosDoctor" EntitySet="hosDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPatien__Insur__3044E72D" Association="Self.FK__hosPatien__Insur__3044E72D">
+      <End Role="hosInsurance" EntitySet="hosInsurance" />
+      <End Role="hosPatient" EntitySet="hosPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPatien__UserI__2F50C2F4" Association="Self.FK__hosPatien__UserI__2F50C2F4">
+      <End Role="hosUser" EntitySet="hosUser" />
+      <End Role="hosPatient" EntitySet="hosPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPrescr__Compl__51A5DAF8" Association="Self.FK__hosPrescr__Compl__51A5DAF8">
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+      <End Role="hosPrescription" EntitySet="hosPrescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPrescr__Medic__5299FF31" Association="Self.FK__hosPrescr__Medic__5299FF31">
+      <End Role="hosMedication" EntitySet="hosMedication" />
+      <End Role="hosPrescription" EntitySet="hosPrescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosTransa__Compl__65ACD3A5" Association="Self.FK__hosTransa__Compl__65ACD3A5">
+      <End Role="hosComplaint" EntitySet="hosComplaint" />
+      <End Role="hosTransaction" EntitySet="hosTransaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cd90afd33601411385b79aff73b84a1e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.hosBooking" Width="1.5" PointX="7.5" PointY="11.625" />
+        <EntityTypeShape EntityType="Model.hosComplaint" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="Model.hosComplaintExamination" Width="1.5" PointX="10.5" PointY="8.625" />
+        <EntityTypeShape EntityType="Model.hosDiagnosi" Width="1.5" PointX="10.5" PointY="14.75" />
+        <EntityTypeShape EntityType="Model.hosDisease" Width="1.5" PointX="8.25" PointY="18" />
+        <EntityTypeShape EntityType="Model.hosDoctor" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="Model.hosExamination" Width="1.5" PointX="8.25" PointY="7.875" />
+        <EntityTypeShape EntityType="Model.hosInsurance" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="Model.hosMedication" Width="1.5" PointX="8.25" PointY="15" />
+        <EntityTypeShape EntityType="Model.hosPatient" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="Model.hosPrescription" Width="1.5" PointX="10.5" PointY="11.75" />
+        <EntityTypeShape EntityType="Model.hosRoom" Width="1.5" PointX="5.25" PointY="7.875" />
+        <EntityTypeShape EntityType="Model.hosTransaction" Width="1.5" PointX="7.5" PointY="21" />
+        <EntityTypeShape EntityType="Model.hosUser" Width="1.5" PointX="0.75" PointY="9.875" />
+        <AssociationConnector Association="Model.FK__hosBookin__Compl__5B2F4532" />
+        <AssociationConnector Association="Model.FK__hosBookin__RoomI__5C23696B" />
+        <AssociationConnector Association="Model.FK__hosCompla__Compl__3E930684" />
+        <AssociationConnector Association="Model.FK__hosCompla__Docto__35FDC083" />
+        <AssociationConnector Association="Model.FK__hosCompla__Patie__35099C4A" />
+        <AssociationConnector Association="Model.FK__hosDiagno__Compl__4BED01A2" />
+        <AssociationConnector Association="Model.FK__hosPrescr__Compl__51A5DAF8" />
+        <AssociationConnector Association="Model.FK__hosTransa__Compl__65ACD3A5" />
+        <AssociationConnector Association="Model.FK__hosCompla__Exami__3F872ABD" />
+        <AssociationConnector Association="Model.FK__hosDiagno__Disea__4CE125DB" />
+        <AssociationConnector Association="Model.FK__hosDoctor__UserI__26BB7CF3" />
+        <AssociationConnector Association="Model.FK__hosPatien__Insur__3044E72D" />
+        <AssociationConnector Association="Model.FK__hosPrescr__Medic__5299FF31" />
+        <AssociationConnector Association="Model.FK__hosPatien__UserI__2F50C2F4" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

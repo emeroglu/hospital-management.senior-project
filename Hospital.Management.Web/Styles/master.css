@@ -1,0 +1,84 @@
+﻿#logo {
+    width: 55px;
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+#header {
+    background-color: #2a92fe;
+    border-bottom: 4px solid #0263B6;
+}
+
+.navbar-nav > li > a {
+    line-height: 30px;
+}
+
+#menuRightBorder {
+    color: #2a92fe;
+    text-shadow: none;
+}
+
+.navbar .nav > li {
+    border-right: none;
+}
+
+.navbar .toggle-sidebar {
+    margin-top: 5px;
+}
+
+.navbar .nav > li > a {
+    padding-left: 30px;
+    padding-right: 0px;
+}
+
+#sidebar .sidebar-search {
+    margin: 10px;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+
+#mainContainer {
+    margin-top: 17px;
+}
+
+.crumbs .crumb-buttons {
+    margin-right: 0px;
+}
+
+.page-title h3 {
+    margin-left: 90px;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.page-title i {
+    float: left;
+    font-size: 70px;
+}
+
+.page-title {
+    width: 250px;
+}
+
+.page-header {
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 5px;
+}
+
+.crumbs {
+    margin-bottom: 25px;
+}
+
+#nprogress .spinner {
+    top: 15px;
+    right: 78.6%;
+}
+
+#nprogress .spinner-icon {
+    width: 15px;
+    height: 30px;
+    border: solid 2px white;
+    border-top-color: #FFFFFF;
+    border-left-color: #FFFFFF;
+    border-radius: 10px;
+}

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="hosBookings">
+      <EntityTypeMapping TypeName="Model.hosBooking">
+        <MappingFragment StoreEntitySet="hosBooking">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosComplaints">
+      <EntityTypeMapping TypeName="Model.hosComplaint">
+        <MappingFragment StoreEntitySet="hosComplaint">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosComplaintExaminations">
+      <EntityTypeMapping TypeName="Model.hosComplaintExamination">
+        <MappingFragment StoreEntitySet="hosComplaintExamination">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ExaminationID" ColumnName="ExaminationID" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosDiagnosis">
+      <EntityTypeMapping TypeName="Model.hosDiagnosi">
+        <MappingFragment StoreEntitySet="hosDiagnosis">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosDiseases">
+      <EntityTypeMapping TypeName="Model.hosDisease">
+        <MappingFragment StoreEntitySet="hosDisease">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosDoctors">
+      <EntityTypeMapping TypeName="Model.hosDoctor">
+        <MappingFragment StoreEntitySet="hosDoctor">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosExaminations">
+      <EntityTypeMapping TypeName="Model.hosExamination">
+        <MappingFragment StoreEntitySet="hosExamination">
+          <ScalarProperty Name="NeedsRoom" ColumnName="NeedsRoom" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosInsurances">
+      <EntityTypeMapping TypeName="Model.hosInsurance">
+        <MappingFragment StoreEntitySet="hosInsurance">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosMedications">
+      <EntityTypeMapping TypeName="Model.hosMedication">
+        <MappingFragment StoreEntitySet="hosMedication">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosPatients">
+      <EntityTypeMapping TypeName="Model.hosPatient">
+        <MappingFragment StoreEntitySet="hosPatient">
+          <ScalarProperty Name="InsuranceID" ColumnName="InsuranceID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosPrescriptions">
+      <EntityTypeMapping TypeName="Model.hosPrescription">
+        <MappingFragment StoreEntitySet="hosPrescription">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="MedicationID" ColumnName="MedicationID" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosRooms">
+      <EntityTypeMapping TypeName="Model.hosRoom">
+        <MappingFragment StoreEntitySet="hosRoom">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosTransactions">
+      <EntityTypeMapping TypeName="Model.hosTransaction">
+        <MappingFragment StoreEntitySet="hosTransaction">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ProvisionDate" ColumnName="ProvisionDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ComplaintID" ColumnName="ComplaintID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hosUsers">
+      <EntityTypeMapping TypeName="Model.hosUser">
+        <MappingFragment StoreEntitySet="hosUser">
+          <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+          <ScalarProperty Name="Online" ColumnName="Online" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

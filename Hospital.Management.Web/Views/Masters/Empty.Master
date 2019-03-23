@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <title>
+        <asp:ContentPlaceHolder ID="TitleCPH" runat="server" />
+    </title>
+
+    <link href="/Melon/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Melon/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Melon/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/Melon/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/Melon/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/Melon/assets/css/fontawesome/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="/Styles/master.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/Melon/assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="/Melon/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Melon/assets/js/libs/lodash.compat.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/event.swipe/jquery.event.swipe.js"></script>
+    <script type="text/javascript" src="/Melon/assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/respond/respond.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/cookie/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/flot/jquery.flot.growraf.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/noty/jquery.noty.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/noty/layouts/top.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/noty/themes/default.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="/Melon/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="/Melon/assets/js/app.js"></script>
+    <script type="text/javascript" src="/Melon/assets/js/plugins.js"></script>
+    <script type="text/javascript" src="/Melon/assets/js/plugins.form-components.js"></script>
+
+    <script src="/Scripts/noty/jquery.noty.js"></script>   
+    <script src="/Scripts/noty/layouts/center.js"></script>
+    <script src="/Scripts/noty/themes/default.js"></script> 
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins
+            FormComponents.init(); // Init all form-specific plugins
+        });
+	</script>    
+
+    <script type="text/javascript">
+
+        function getValue(key){
+
+            for (var i = 0; i < glossary.length; i++) {
+    
+                if(glossary[i].Key == key){
+
+                    return glossary[i].Value;
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="CssCPH" runat="server" />
+
+    <script type="text/javascript">
+
+        var glossary = <%: Html.Raw(ViewBag.Glossary) %>;
+
+        glossary.get = function(key){
+
+            return getValue(key);
+
+        };
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="NgCPH" runat="server" />
+
+    <asp:ContentPlaceHolder ID="HeadCPH" runat="server" />
+
+</head>
+<body ng-app ng-controller="Ctrl">
+
+    <asp:ContentPlaceHolder ID="BodyTopCPH" runat="server" />
+
+    <asp:ContentPlaceHolder ID="BodyCPH" runat="server" />
+
+    <asp:ContentPlaceHolder ID="BodyBottomCPH" runat="server" />
+
+</body>
+</html>

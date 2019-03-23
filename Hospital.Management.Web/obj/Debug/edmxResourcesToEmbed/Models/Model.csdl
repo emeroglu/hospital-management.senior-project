@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="hosBookings" EntityType="Model.hosBooking" />
+    <EntitySet Name="hosComplaints" EntityType="Model.hosComplaint" />
+    <EntitySet Name="hosComplaintExaminations" EntityType="Model.hosComplaintExamination" />
+    <EntitySet Name="hosDiagnosis" EntityType="Model.hosDiagnosi" />
+    <EntitySet Name="hosDiseases" EntityType="Model.hosDisease" />
+    <EntitySet Name="hosDoctors" EntityType="Model.hosDoctor" />
+    <EntitySet Name="hosExaminations" EntityType="Model.hosExamination" />
+    <EntitySet Name="hosInsurances" EntityType="Model.hosInsurance" />
+    <EntitySet Name="hosMedications" EntityType="Model.hosMedication" />
+    <EntitySet Name="hosPatients" EntityType="Model.hosPatient" />
+    <EntitySet Name="hosPrescriptions" EntityType="Model.hosPrescription" />
+    <EntitySet Name="hosRooms" EntityType="Model.hosRoom" />
+    <EntitySet Name="hosTransactions" EntityType="Model.hosTransaction" />
+    <EntitySet Name="hosUsers" EntityType="Model.hosUser" />
+    <AssociationSet Name="FK__hosBookin__Compl__5B2F4532" Association="Model.FK__hosBookin__Compl__5B2F4532">
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+      <End Role="hosBooking" EntitySet="hosBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosBookin__RoomI__5C23696B" Association="Model.FK__hosBookin__RoomI__5C23696B">
+      <End Role="hosRoom" EntitySet="hosRooms" />
+      <End Role="hosBooking" EntitySet="hosBookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Compl__3E930684" Association="Model.FK__hosCompla__Compl__3E930684">
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+      <End Role="hosComplaintExamination" EntitySet="hosComplaintExaminations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Docto__35FDC083" Association="Model.FK__hosCompla__Docto__35FDC083">
+      <End Role="hosDoctor" EntitySet="hosDoctors" />
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Patie__35099C4A" Association="Model.FK__hosCompla__Patie__35099C4A">
+      <End Role="hosPatient" EntitySet="hosPatients" />
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDiagno__Compl__4BED01A2" Association="Model.FK__hosDiagno__Compl__4BED01A2">
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+      <End Role="hosDiagnosi" EntitySet="hosDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPrescr__Compl__51A5DAF8" Association="Model.FK__hosPrescr__Compl__51A5DAF8">
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+      <End Role="hosPrescription" EntitySet="hosPrescriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosTransa__Compl__65ACD3A5" Association="Model.FK__hosTransa__Compl__65ACD3A5">
+      <End Role="hosComplaint" EntitySet="hosComplaints" />
+      <End Role="hosTransaction" EntitySet="hosTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosCompla__Exami__3F872ABD" Association="Model.FK__hosCompla__Exami__3F872ABD">
+      <End Role="hosExamination" EntitySet="hosExaminations" />
+      <End Role="hosComplaintExamination" EntitySet="hosComplaintExaminations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDiagno__Disea__4CE125DB" Association="Model.FK__hosDiagno__Disea__4CE125DB">
+      <End Role="hosDisease" EntitySet="hosDiseases" />
+      <End Role="hosDiagnosi" EntitySet="hosDiagnosis" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosDoctor__UserI__26BB7CF3" Association="Model.FK__hosDoctor__UserI__26BB7CF3">
+      <End Role="hosUser" EntitySet="hosUsers" />
+      <End Role="hosDoctor" EntitySet="hosDoctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPatien__Insur__3044E72D" Association="Model.FK__hosPatien__Insur__3044E72D">
+      <End Role="hosInsurance" EntitySet="hosInsurances" />
+      <End Role="hosPatient" EntitySet="hosPatients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPrescr__Medic__5299FF31" Association="Model.FK__hosPrescr__Medic__5299FF31">
+      <End Role="hosMedication" EntitySet="hosMedications" />
+      <End Role="hosPrescription" EntitySet="hosPrescriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hosPatien__UserI__2F50C2F4" Association="Model.FK__hosPatien__UserI__2F50C2F4">
+      <End Role="hosUser" EntitySet="hosUsers" />
+      <End Role="hosPatient" EntitySet="hosPatients" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="hosBooking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" />
+    <Property Name="RoomID" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="hosComplaint" Relationship="Model.FK__hosBookin__Compl__5B2F4532" FromRole="hosBooking" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosRoom" Relationship="Model.FK__hosBookin__RoomI__5C23696B" FromRole="hosBooking" ToRole="hosRoom" />
+  </EntityType>
+  <EntityType Name="hosComplaint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="DoctorID" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="hosBookings" Relationship="Model.FK__hosBookin__Compl__5B2F4532" FromRole="hosComplaint" ToRole="hosBooking" />
+    <NavigationProperty Name="hosComplaintExaminations" Relationship="Model.FK__hosCompla__Compl__3E930684" FromRole="hosComplaint" ToRole="hosComplaintExamination" />
+    <NavigationProperty Name="hosDoctor" Relationship="Model.FK__hosCompla__Docto__35FDC083" FromRole="hosComplaint" ToRole="hosDoctor" />
+    <NavigationProperty Name="hosPatient" Relationship="Model.FK__hosCompla__Patie__35099C4A" FromRole="hosComplaint" ToRole="hosPatient" />
+    <NavigationProperty Name="hosDiagnosis" Relationship="Model.FK__hosDiagno__Compl__4BED01A2" FromRole="hosComplaint" ToRole="hosDiagnosi" />
+    <NavigationProperty Name="hosPrescriptions" Relationship="Model.FK__hosPrescr__Compl__51A5DAF8" FromRole="hosComplaint" ToRole="hosPrescription" />
+    <NavigationProperty Name="hosTransactions" Relationship="Model.FK__hosTransa__Compl__65ACD3A5" FromRole="hosComplaint" ToRole="hosTransaction" />
+  </EntityType>
+  <EntityType Name="hosComplaintExamination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" />
+    <Property Name="ExaminationID" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="hosComplaint" Relationship="Model.FK__hosCompla__Compl__3E930684" FromRole="hosComplaintExamination" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosExamination" Relationship="Model.FK__hosCompla__Exami__3F872ABD" FromRole="hosComplaintExamination" ToRole="hosExamination" />
+  </EntityType>
+  <EntityType Name="hosDiagnosi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" />
+    <Property Name="DiseaseID" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="hosComplaint" Relationship="Model.FK__hosDiagno__Compl__4BED01A2" FromRole="hosDiagnosi" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosDisease" Relationship="Model.FK__hosDiagno__Disea__4CE125DB" FromRole="hosDiagnosi" ToRole="hosDisease" />
+  </EntityType>
+  <EntityType Name="hosDisease">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="hosDiagnosis" Relationship="Model.FK__hosDiagno__Disea__4CE125DB" FromRole="hosDisease" ToRole="hosDiagnosi" />
+  </EntityType>
+  <EntityType Name="hosDoctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="hosComplaints" Relationship="Model.FK__hosCompla__Docto__35FDC083" FromRole="hosDoctor" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosUser" Relationship="Model.FK__hosDoctor__UserI__26BB7CF3" FromRole="hosDoctor" ToRole="hosUser" />
+  </EntityType>
+  <EntityType Name="hosExamination">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Fee" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NeedsRoom" Type="Int32" />
+    <NavigationProperty Name="hosComplaintExaminations" Relationship="Model.FK__hosCompla__Exami__3F872ABD" FromRole="hosExamination" ToRole="hosComplaintExamination" />
+  </EntityType>
+  <EntityType Name="hosInsurance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="hosPatients" Relationship="Model.FK__hosPatien__Insur__3044E72D" FromRole="hosInsurance" ToRole="hosPatient" />
+  </EntityType>
+  <EntityType Name="hosMedication">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="hosPrescriptions" Relationship="Model.FK__hosPrescr__Medic__5299FF31" FromRole="hosMedication" ToRole="hosPrescription" />
+  </EntityType>
+  <EntityType Name="hosPatient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InsuranceID" Type="Int32" />
+    <NavigationProperty Name="hosComplaints" Relationship="Model.FK__hosCompla__Patie__35099C4A" FromRole="hosPatient" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosInsurance" Relationship="Model.FK__hosPatien__Insur__3044E72D" FromRole="hosPatient" ToRole="hosInsurance" />
+    <NavigationProperty Name="hosUser" Relationship="Model.FK__hosPatien__UserI__2F50C2F4" FromRole="hosPatient" ToRole="hosUser" />
+  </EntityType>
+  <EntityType Name="hosPrescription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" />
+    <Property Name="MedicationID" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="hosComplaint" Relationship="Model.FK__hosPrescr__Compl__51A5DAF8" FromRole="hosPrescription" ToRole="hosComplaint" />
+    <NavigationProperty Name="hosMedication" Relationship="Model.FK__hosPrescr__Medic__5299FF31" FromRole="hosPrescription" ToRole="hosMedication" />
+  </EntityType>
+  <EntityType Name="hosRoom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Floor" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="hosBookings" Relationship="Model.FK__hosBookin__RoomI__5C23696B" FromRole="hosRoom" ToRole="hosBooking" />
+  </EntityType>
+  <EntityType Name="hosTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ProvisionDate" Type="DateTime" Precision="3" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="hosComplaint" Relationship="Model.FK__hosTransa__Compl__65ACD3A5" FromRole="hosTransaction" ToRole="hosComplaint" />
+  </EntityType>
+  <EntityType Name="hosUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Online" Type="Boolean" />
+    <Property Name="LastSeen" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="hosDoctors" Relationship="Model.FK__hosDoctor__UserI__26BB7CF3" FromRole="hosUser" ToRole="hosDoctor" />
+    <NavigationProperty Name="hosPatients" Relationship="Model.FK__hosPatien__UserI__2F50C2F4" FromRole="hosUser" ToRole="hosPatient" />
+  </EntityType>
+  <Association Name="FK__hosBookin__Compl__5B2F4532">
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="0..1" />
+    <End Type="Model.hosBooking" Role="hosBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosBooking">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosBookin__RoomI__5C23696B">
+    <End Type="Model.hosRoom" Role="hosRoom" Multiplicity="0..1" />
+    <End Type="Model.hosBooking" Role="hosBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosRoom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosBooking">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Compl__3E930684">
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="0..1" />
+    <End Type="Model.hosComplaintExamination" Role="hosComplaintExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaintExamination">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Docto__35FDC083">
+    <End Type="Model.hosDoctor" Role="hosDoctor" Multiplicity="0..1" />
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosDoctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaint">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Patie__35099C4A">
+    <End Type="Model.hosPatient" Role="hosPatient" Multiplicity="0..1" />
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosPatient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaint">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDiagno__Compl__4BED01A2">
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="0..1" />
+    <End Type="Model.hosDiagnosi" Role="hosDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDiagnosi">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPrescr__Compl__51A5DAF8">
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="0..1" />
+    <End Type="Model.hosPrescription" Role="hosPrescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPrescription">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosTransa__Compl__65ACD3A5">
+    <End Type="Model.hosComplaint" Role="hosComplaint" Multiplicity="0..1" />
+    <End Type="Model.hosTransaction" Role="hosTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosComplaint">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosTransaction">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosCompla__Exami__3F872ABD">
+    <End Type="Model.hosExamination" Role="hosExamination" Multiplicity="0..1" />
+    <End Type="Model.hosComplaintExamination" Role="hosComplaintExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosExamination">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosComplaintExamination">
+        <PropertyRef Name="ExaminationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDiagno__Disea__4CE125DB">
+    <End Type="Model.hosDisease" Role="hosDisease" Multiplicity="0..1" />
+    <End Type="Model.hosDiagnosi" Role="hosDiagnosi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosDisease">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDiagnosi">
+        <PropertyRef Name="DiseaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosDoctor__UserI__26BB7CF3">
+    <End Type="Model.hosUser" Role="hosUser" Multiplicity="0..1" />
+    <End Type="Model.hosDoctor" Role="hosDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosDoctor">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPatien__Insur__3044E72D">
+    <End Type="Model.hosInsurance" Role="hosInsurance" Multiplicity="0..1" />
+    <End Type="Model.hosPatient" Role="hosPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosInsurance">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPatient">
+        <PropertyRef Name="InsuranceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPrescr__Medic__5299FF31">
+    <End Type="Model.hosMedication" Role="hosMedication" Multiplicity="0..1" />
+    <End Type="Model.hosPrescription" Role="hosPrescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosMedication">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPrescription">
+        <PropertyRef Name="MedicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hosPatien__UserI__2F50C2F4">
+    <End Type="Model.hosUser" Role="hosUser" Multiplicity="0..1" />
+    <End Type="Model.hosPatient" Role="hosPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hosUser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="hosPatient">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
